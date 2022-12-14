@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-    <div className="h-screen font-extralight">
+    <div className="h-screen font-extralight bg-slate-50 dark:bg-slate-800">
       <Navbar handleTheme={handleTheme} theme={theme}/>
       <Home/>
       <Skills/>
