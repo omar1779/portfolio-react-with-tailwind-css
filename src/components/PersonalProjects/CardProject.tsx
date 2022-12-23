@@ -3,7 +3,7 @@ import { MdApps } from "react-icons/md";
 import { SiYoutube, SiGithub } from "react-icons/si";
 interface Props {
   title: string;
-  img: string;
+  img?: string;
   description: string;
   youtube: string;
   website?: string;
@@ -11,11 +11,10 @@ interface Props {
 }
 const CardProject = (props: Props) => {
   return (
-    <div key={props.title} className="bg-slate-200 dark:bg-slate-900 dark:text-white flex flex-col rounded-2xl p-5 shadow-2xl shadow-gray-600 ">
-      <img src={props.img} alt="image project" />
+    <div key={props.title} className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col rounded-2xl p-5 shadow-2xl shadow-black justify-evenly">
       <h2 className="text-lg">{props.title}</h2>
       <h2>{props.description}</h2>
-      <div className="flex w-full justify-evenly">
+      <div className="flex w-full items-center justify-evenly">
           <a className="dark:text-white" target="_blank">
             <SiGithub className="h-8 w-8" />
           </a>

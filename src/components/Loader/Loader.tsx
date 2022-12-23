@@ -9,9 +9,12 @@ const Loader: React.FC<LoaderInterface> = (props : LoaderInterface) => {
     props.setEnter(false)
   }
   return (
-    <div className="h-screen w-screen flex-col lg:flex-row flex justify-around items-center bg-slate-200">
-      <img className="h-auto w-auto" src="https://firebasestorage.googleapis.com/v0/b/coffeeandcode-cfa1d.appspot.com/o/PYh.gif?alt=media&token=645b29f0-420e-4f67-9da6-cdd66c69dee7" alt="loader" />
-      <h1 onClick={handleEnter} className="text-5xl font-thin text-white text-center bg-slate-800 rounded-2xl w-1/4 h-32 p-5 animate-bounce shadow-2xl">{props.title}</h1>
+    <div className="h-screen w-screen flex-col lg:flex-row flex justify-center py-16 items-center bg-zinc-900">
+      <h1 className="text-white text-3xl animate-pulse shadow-zinc-700">Welcome to my Portfolio</h1>
+      <video onClick={handleEnter} className="text-black text-center bg-welcome2 bg-center bg-cover rounded-full h-40 w-40 lg:h-60 xl:h-80 xl:w-80 lg:w-60 shadow-2xl shadow-white m-10 cursor-pointer" autoPlay muted loop src="https://firebasestorage.googleapis.com/v0/b/coffeeandcode-cfa1d.appspot.com/o/ezgif-4-251db243ea.webm?alt=media&token=94b4f661-098d-46f0-91b5-4a8b42ab4fd3"/>
+      <div>
+      <h2 className="text-white text-3xl animate-pulse shadow-2xl">Click Here!</h2>
+      </div>
     </div>
   );
 };

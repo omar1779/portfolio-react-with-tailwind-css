@@ -27,7 +27,7 @@ const data: projects[] = [
     github: "https://github.com/omar1779/PI-Henry-Countries",
   },
   {
-    title: "firebaseAuth",
+    title: "FirebaseAuth",
     img: "",
     description:
       "design in a practical way the handling of authentication with Firebase email and password and with the google provider",
@@ -43,6 +43,15 @@ const data: projects[] = [
     youtube: "#",
     website: "#",
     github: "https://github.com/omar1779/PI-Henry-Countries",
+  },
+  {
+    title: "HeyCurvys Shop",
+    img: "",
+    description:
+      "Freelance project for the company HeyCurvys Shop, design and develop relational database, backend and frontend of a virtual clothing store for the sale of products online",
+    youtube: "#",
+    website: "#",
+    github: "https://github.com/omar1779/HeyCurvys",
   },
 ];
 export default data;

@@ -1,5 +1,6 @@
 import React from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { Dropdown } from "./Dropdown";
 interface Props {
   handleTheme: () => void;
   theme: string;
@@ -7,12 +8,13 @@ interface Props {
 
 const Navbar: React.FC<Props> = (props: Props) => {
   return (
-    <div className="bg-slate-200 dark:bg-slate-900 h-12 flex items-center justify-between px-3 shadow-2xl fixed z-10 w-full md:h-20">
-      <h1 className=" dark:text-white md:text-xl lg:text-2xl xl:text-4xl">
+    <div className="bg-slate-50 dark:bg-zinc-800 h-12 flex items-center justify-between px-3 shadow-md fixed z-10 w-full md:h-20 shadow-black">
+      <h1 className=" dark:text-white md:text-xl lg:text-2xl xl:text-3xl">
         Portfolio Omar Sosa
       </h1>
+      <Dropdown/>
       <button
-        className="bg-slate-900 dark:bg-slate-100 dark:text-black text-white p-1 rounded-md animate-pulse hover:bg-slate-500 text-center"
+        className="bg-zinc-800 dark:bg-slate-50 dark:text-black text-white p-1 rounded-md animate-pulse hover:bg-gray-500 text-center"
         onClick={props.handleTheme}
       >
         {props.theme === "dark" ? (
