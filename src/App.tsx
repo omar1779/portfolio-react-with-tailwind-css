@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import { Loader } from "./components/Loader/";
 import { PersonalProjects } from "./components/PersonalProjects";
 const HomeLazy = lazy(() => import("./components/Home"));
-const SkillsLazy = lazy(() => import("./components/Skills"));
+const SkillsLazy = lazy(() => import("./components/Skills"))
 
 function App() {
   const [theme, setTheme] = useState("dark");

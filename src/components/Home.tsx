@@ -30,7 +30,7 @@ const Home = () => {
             future groups that I will be, always willing to teach and learn. ❤"
           </h1>
           <a
-            className="dark:text-white text-xl xl:text-2xl animate-pulse hover:font-bold"
+            className="dark:text-dark rounded-lg dark:bg-slate-50 text-center text-xl xl:text-2xl animate-pulse hover:font-bold"
             href="https://drive.google.com/file/d/1449m6Tsp_um2FdIY8d_TymwR2H8rcDFH/view?usp=share_link"
             target="_blank"
           >

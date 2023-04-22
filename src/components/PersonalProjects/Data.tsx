@@ -53,5 +53,23 @@ const data: projects[] = [
     website: "#",
     github: "https://github.com/omar1779/HeyCurvys",
   },
+  {
+    title: "Hecho.work",
+    img: "",
+    description:
+      "migrate wordpress page to React to improve page performance when interacting with the home services interface, developed with typescript and React, integrating a server previously made with express and mongodb with typescript",
+    youtube: "#",
+    website: "#",
+    github: "https://github.com/omar1779/hechowork-backend",
+  },
+  {
+    title: "Hecho.work app mobile",
+    img: "",
+    description:
+      "extended progressive app made of fact.work web using react native and typescript",
+    youtube: "#",
+    website: "#",
+    github: "https://github.com/omar1779/hechowork-backend",
+  },
 ];
 export default data;
