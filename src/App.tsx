@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import { Loader } from "./components/Loader/";
 import { PersonalProjects } from "./components/PersonalProjects";
 const HomeLazy = lazy(() => import("./components/Home"));
-const SkillsLazy = lazy(() => import("./components/Skills"))
+const SkillsLazy = lazy(() => import("./components/Skills"));
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -31,14 +31,10 @@ function App() {
         ) : (
           <div className="h-screen font-extralight">
             <Navbar handleTheme={handleTheme} theme={theme} />
-            <div className="lg:flex lg:w-full lg:justify-between">
-              <div className="lg:w-2/6">
+            <div className="flex-col items-center bg-slate-50 dark:bg-zinc-900 lg:px-60">
               <HomeLazy />
-              </div>
-              <div className="lg:flex lg:flex-col lg:w-4/6">
-                <SkillsLazy />
-                <PersonalProjects />
-              </div>
+              <SkillsLazy />
+              <PersonalProjects />
             </div>
           </div>
         )}

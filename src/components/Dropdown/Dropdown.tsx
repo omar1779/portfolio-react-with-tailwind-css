@@ -6,13 +6,13 @@ export interface DropdownInterface {}
 const Dropdown: React.FC<DropdownInterface> = () => {
   const [contact, setContact] = useState(false);
   return (
-    <div className="flex justify-between md:justify-around lg:justify-center w-1/4">
-      <button
+    <div className="flex justify-between md:justify-around lg:justify-center lg:items-center">
+      <h1
         onClick={() => setContact(contact ? false : true)}
         className="dark:text-white text-lg md:text-xl lg:text-2xl xl:text-3xl animate-pulse cursor-pointer mr-2"
       >
         {contact ? <AiOutlineArrowLeft/>: "Contact"}
-      </button>
+      </h1>
       {contact && (
         <div className="flex justify-evenly">
           <a href="https://www.linkedin.com/in/omar-codex/" target="_blank">

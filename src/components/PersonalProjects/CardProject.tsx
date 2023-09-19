@@ -15,8 +15,8 @@ const CardProject = (props: Props) => {
       key={props.title}
       className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col rounded-2xl p-5 shadow-2xl shadow-black justify-evenly"
     >
-      <h2 className="text-lg">{props.title}</h2>
-      <h2>{props.description}</h2>
+      <h1 className="text-lg">{props.title}</h1>
+      <p>{props.description}</p>
       <div className="flex w-full items-center justify-evenly">
         {props.github !== "#" &&
         <a href={props.github} className="dark:text-white" target="_blank">
