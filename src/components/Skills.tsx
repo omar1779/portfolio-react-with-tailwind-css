@@ -13,9 +13,75 @@ import {
   SiNextdotjs,
   SiPython,
   SiSinglestore,
+  SiCss3,
 } from "react-icons/si";
 import { FaCss3Alt, FaNodeJs } from "react-icons/fa";
 import { BsFillBootstrapFill } from "react-icons/bs";
+import { useAnimation } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import VisibilitySensor from "react-visibility-sensor";
+
+const SkillItem = ({ technology, icon, color }: { technology: string; icon: any; color: string }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const yOffset = window.scrollY;
+      const threshold = 200;
+      if (yOffset >= threshold && !isVisible) {
+        setIsVisible(true);
+      } else if (yOffset < threshold && isVisible) {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isVisible]);
+  const variants = {
+    visible: {
+      opacity: 1,
+      x: 0, // Elemento en su posición original
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: "-100%", // Elemento fuera de la pantalla hacia la izquierda
+      transition: {
+        duration: 0.9,
+        ease: "easeIn",
+      },
+    },
+  };
+  
+ 
+  return (
+    <VisibilitySensor
+      onChange={(isVisible: any) => {
+        if (isVisible) {
+          setIsVisible(true);
+        }
+      }}
+      partialVisibility={true}
+    >
+      {({ isVisible }:{isVisible : string}) => (
+        <motion.div
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          variants={variants}
+          className={`bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse `}
+        >
+          <h1 className="dark:text-white">{technology}</h1>
+          {icon({ className:`w-6 h-6 animate-pulse ${color}`})}
+        </motion.div>
+      )}
+    </VisibilitySensor>
+  );
+};
 
 const Skills = () => {
   return (
@@ -30,78 +96,25 @@ const Skills = () => {
         />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-6 md:gap-10 lg:gap-15 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-8 gap-10">
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">Javascript</h1>
-          <SiJavascript className="w-6 h-6 animate-pulse text-yellow-500" />
-        </div>
-        <div className="dark:text-white bg-slate-50 dark:bg-zinc-800 flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">Typescript</h1>
-          <SiTypescript className="w-6 h-6 animate-pulse text-blue-500" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">React</h1>
-          <SiReact className="w-6 h-6 animate-pulse text-sky-500" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">React Native</h1>
-          <SiReact className="w-6 h-6 animate-pulse text-sky-500" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">HTML</h1>
-          <SiHtml5 className="w-6 h-6 animate-pulse text-orange-600" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">CSS</h1>
-          <FaCss3Alt className="w-6 h-6 animate-pulse text-sky-600" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">Redux</h1>
-          <SiRedux className="w-6 h-6 animate-pulse text-violet-900" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">Node.js</h1>
-          <FaNodeJs className="w-6 h-6 animate-pulse text-green-800" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">Express.Js</h1>
-          <SiExpress className="w-6 h-6 animate-pulse text-black" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">Postgres</h1>
-          <SiPostgresql className="w-6 h-6 animate-pulse text-blue-800" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">Bootstrap 5</h1>
-          <BsFillBootstrapFill className="w-6 h-6 animate-pulse text-violet-700" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">Tailwind</h1>
-          <SiTailwindcss className="w-6 h-6 animate-pulse text-sky-600" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">MongoDb</h1>
-          <SiMongodb className="w-6 h-6 animate-pulse text-green-700" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">Firebase</h1>
-          <SiFirebase className="w-6 h-6 animate-pulse text-yellow-500" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse ">
-          <h1 className=" dark:text-white">MySql</h1>
-          <SiMysql className="w-6 h-6 animate-pulse text-blue-600" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">Next</h1>
-          <SiNextdotjs className="w-6 h-6 animate-pulse text-black" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">Python</h1>
-          <SiPython className="w-6 h-6 animate-pulse text-yellow-500" />
-        </div>
-        <div className="bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse">
-          <h1 className=" dark:text-white">SingleStore</h1>
-          <SiSinglestore className="w-6 h-6 animate-pulse text-violet-600" />
-        </div>
+        <SkillItem technology="Javascript" icon={SiJavascript} color="text-yellow-500"/>
+        <SkillItem technology="Typescript" icon={SiTypescript} color="text-blue-500"/>
+        <SkillItem technology="React" icon={SiReact} color="text-sky-500" />
+        <SkillItem technology="React Native" icon={SiReact} color="text-sky-500" />
+        <SkillItem technology="HTML" icon={SiHtml5} color="text-orange-600" />
+        <SkillItem technology="CSS" icon={SiCss3} color="text-sky-600" />
+        <SkillItem technology="Redux" icon={SiRedux} color="text-violet-900" />
+        <SkillItem technology="Node.js" icon={FaNodeJs} color="text-green-800" />
+        <SkillItem technology="Express.Js" icon={SiExpress} color="text-black" />
+        <SkillItem technology="Postgres" icon={SiPostgresql} color="text-blue-800" />
+        <SkillItem technology="Bootstrap 5" icon={BsFillBootstrapFill} color="text-violet-700"/>
+        <SkillItem technology="Tailwind" icon={SiTailwindcss} color="text-sky-600" />
+        <SkillItem technology="MongoDb" icon={SiMongodb} color="text-green-700" />
+        <SkillItem technology="Firebase" icon={SiFirebase} color="text-yellow-600" />
+        <SkillItem technology="MySql" icon={SiMysql} color="text-blue-600" />
+        <SkillItem technology="Next" icon={SiNextdotjs} color="text-black" />
+        <SkillItem technology="Python" icon={SiPython} color="text-yellow-500" />
+        <SkillItem technology="SingleStore" icon={SiSinglestore} color="text-violet-600"
+        />
       </div>
     </div>
   );

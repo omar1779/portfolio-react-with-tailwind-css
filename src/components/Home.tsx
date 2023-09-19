@@ -1,4 +1,5 @@
 import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { motion } from "framer-motion";
 const Home = () => {
   const [text] = useTypewriter({
     words: [
@@ -10,8 +11,24 @@ const Home = () => {
     ],
     loop: 2,
   });
+  const variants = {
+    start: {
+      opacity: 1,
+    },
+    fadeInOut: {
+      opacity: [0, 1], // Inicia con opacidad 0 y termina con opacidad 1
+      transition: {
+        duration: 0.9,
+        repeat: 1, // Repite la animación dos veces (una vez más después de la primera)
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
-    <div  id="start" className="h-auto flex flex-col items-center px-10 lg:px-28 pb-16 bg-slate-50 dark:bg-zinc-900">
+    <div
+      id="start"
+      className="h-auto flex flex-col items-center px-10 lg:px-28 pb-16 bg-slate-50 dark:bg-zinc-900"
+    >
       <div className="text-3xl xl:text-4xl h-32 mt-20 md:mt-28 dark:text-white">
         <h1>
           I am
@@ -25,7 +42,12 @@ const Home = () => {
           src="https://firebasestorage.googleapis.com/v0/b/coffeeandcode-cfa1d.appspot.com/o/WhatsApp_Image_2022-11-18_at_6.00.50_PM-removebg-preview%20(1).png?alt=media&token=dd5eb900-0e75-489e-b41a-972b82ea7373"
           alt="photo omar sosa"
         />
-        <div className="p-10 flex flex-col rounded-3xl lg:p-10 xl:text-xl xl:px-3 ">
+        <motion.div
+          initial="start"
+          animate="fadeInOut"
+          variants={variants}
+          className="p-10 flex flex-col rounded-3xl lg:p-10 xl:text-xl xl:px-3 "
+        >
           <p className=" text-black dark:text-white">
             "Hello there! I'm Omar Sosa 👨🏻‍💻, a passionate full-stack developer
             and freelancer based in Panama. My passion lies in crafting digital
@@ -46,12 +68,12 @@ const Home = () => {
           </p>
           <a
             className="dark:text-dark rounded-lg mt-10 p-2 dark:bg-slate-50 text-center text-xl xl:text-2xl animate-pulse hover:font-bold"
-            href="https://drive.google.com/file/d/1449m6Tsp_um2FdIY8d_TymwR2H8rcDFH/view?usp=share_link"
+            href="https://docs.google.com/document/d/e/2PACX-1vRoWbQ81g7ijIFtYItOYcTYWPiOjnkrTxtWYiVNy-uDm-DOqCOiOhCIijHujoRCXYLoripwzUWz2vu_/pub"
             target="_blank"
           >
             <h1>View my CV</h1>
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
