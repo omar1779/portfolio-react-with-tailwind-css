@@ -33,8 +33,8 @@ function App() {
             <Navbar handleTheme={handleTheme} theme={theme} />
             <div className="flex-col items-center bg-slate-50 dark:bg-zinc-900 lg:px-60">
               <HomeLazy />
-              <SkillsLazy />
               <PersonalProjects />
+              <SkillsLazy />
             </div>
           </div>
         )}

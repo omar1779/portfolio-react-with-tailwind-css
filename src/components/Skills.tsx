@@ -73,7 +73,7 @@ const SkillItem = ({ technology, icon, color }: { technology: string; icon: any;
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={variants}
-          className={`bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-full h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse `}
+          className={`bg-slate-50 dark:bg-zinc-800 dark:text-white flex flex-col justify-center items-center rounded-xl h-32 w-32 shadow-2xl shadow-black active:animate-bounce hover:animate-pulse `}
         >
           <h1 className="dark:text-white">{technology}</h1>
           {icon({ className:`w-6 h-6 animate-pulse ${color}`})}

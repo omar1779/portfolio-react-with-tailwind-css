@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <div
       id="start"
-      className="h-auto flex flex-col items-center px-10 lg:px-28 pb-16 bg-slate-50 dark:bg-zinc-900"
+      className="h-auto flex flex-col justify-center items-center px-10 lg:px-28 pb-16 bg-slate-50 dark:bg-zinc-900"
     >
       <div className="text-3xl xl:text-4xl h-32 mt-20 md:mt-28 dark:text-white">
         <h1>
@@ -36,12 +36,14 @@ const Home = () => {
           <Cursor />
         </h1>
       </div>
-      <div className="flex flex-col items-center md:flex-row lg:flex-col">
-        <img
-          className="rounded-full h-52 w-52 lg:h-44 lg:w-44 m-5 shadow-2xl shadow-black"
-          src="https://firebasestorage.googleapis.com/v0/b/coffeeandcode-cfa1d.appspot.com/o/WhatsApp_Image_2022-11-18_at_6.00.50_PM-removebg-preview%20(1).png?alt=media&token=dd5eb900-0e75-489e-b41a-972b82ea7373"
-          alt="photo omar sosa"
-        />
+      <div className="flex flex-col items-center justify-center md:flex-row lg:flex-col">
+        <div className="h-80 w-80">
+          <img
+            className="rounded-full w-full h-full object-cover shadow-2xl shadow-black"
+            src="https://firebasestorage.googleapis.com/v0/b/coffeeandcode-cfa1d.appspot.com/o/profile2.0.jpeg?alt=media&token=38568a11-9c8f-4a2c-a26b-770c68133c69"
+            alt="photo omar sosa"
+          />
+        </div>
         <motion.div
           initial="start"
           animate="fadeInOut"
@@ -68,7 +70,7 @@ const Home = () => {
           </p>
           <a
             className="dark:text-dark rounded-lg mt-10 p-2 dark:bg-slate-50 text-center text-xl xl:text-2xl animate-pulse hover:font-bold"
-            href="https://docs.google.com/document/d/e/2PACX-1vRoWbQ81g7ijIFtYItOYcTYWPiOjnkrTxtWYiVNy-uDm-DOqCOiOhCIijHujoRCXYLoripwzUWz2vu_/pub"
+            href="https://drive.google.com/file/d/1k0rxT0gRibHwRNAso72i6CyHpDICsJ7C/view?usp=drive_link"
             target="_blank"
           >
             <h1>View my CV</h1>
